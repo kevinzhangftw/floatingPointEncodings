@@ -7,6 +7,8 @@
 //
 
 #include <stdio.h>
+#include "fplib.h"
+
 
 int main(int argc, const char * argv[]) {
     // insert code here...

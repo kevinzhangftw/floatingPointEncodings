@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC8B6D0F1C56DCF200598B6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = AC8B6D0E1C56DCF200598B6F /* main.c */; };
+		AC8B6D1A1C56DEB000598B6F /* fplib.c in Sources */ = {isa = PBXBuildFile; fileRef = AC8B6D181C56DEB000598B6F /* fplib.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		AC8B6D0B1C56DCF200598B6F /* floatingPointEncodings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = floatingPointEncodings; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8B6D0E1C56DCF200598B6F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		AC8B6D181C56DEB000598B6F /* fplib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fplib.c; path = ../fplib.c; sourceTree = "<group>"; };
+		AC8B6D191C56DEB000598B6F /* fplib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fplib.h; path = ../fplib.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				AC8B6D0E1C56DCF200598B6F /* main.c */,
+				AC8B6D181C56DEB000598B6F /* fplib.c */,
+				AC8B6D191C56DEB000598B6F /* fplib.h */,
 			);
 			path = floatingPointEncodings;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8B6D0F1C56DCF200598B6F /* main.c in Sources */,
+				AC8B6D1A1C56DEB000598B6F /* fplib.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
