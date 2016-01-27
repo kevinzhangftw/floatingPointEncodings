@@ -7,6 +7,8 @@
 //
 
 #include "fplib.h"
+#include <math.h>
+#include <assert.h> 
 
 struct signExpFrac extract(bit16 x){
     struct signExpFrac newSignExpFrac;
@@ -14,22 +16,37 @@ struct signExpFrac extract(bit16 x){
     return newSignExpFrac;
 }
 
+int binary_decimal(int n) {
+    int decimal=0, i=0, rem;
+    while (n!=0)
+    {
+        rem = n%10;
+        n/=10;
+        decimal += rem*pow(2,i);
+        ++i;
+    }
+    return decimal;
+}
+
+int power(int base, unsigned int exp) {
+    int i, result = 1;
+    for (i = 0; i < exp; i++)
+        result *= base;
+    return result;
+}
 /// 1 sign, 7 exponents, 8 fraction
 bit16 float_16(unsigned sign, unsigned exp, unsigned frac){
-    bit16 bit16Repped;
-    //param assertion.
+
+    assert(sign == 1 || sign == 0);
+    assert(exp >= 0 && exp < power(2, 7));
+    assert(frac >= 0 && frac < power(2, 8));
     
-    //interpret sign
-    //if sign 0, positive. else negative.
+    bit16 combined;
+    combined += sign * power(2, 15);
+    combined += exp * power(2, 7);
+    combined += frac;
     
-    //interpret exp
-    //convert the binary into decimal for max readability
-    
-    
-    
-    //interpret mantissa
-    
-    return bit16Repped;
+    return combined;
 }
 
 bit16 fp_mult(bit16 x, bit16 y){

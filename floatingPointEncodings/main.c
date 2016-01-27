@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
     printf("Hello, World!\n");
     
     
-    bit16 someFloat = float_16(1, 100000, 1100000); //supposed to be -2^(1) * 1.75
+    bit16 someFloat = float_16(1, 33, 222); //FP(16, 8)
     
     
     return 0;

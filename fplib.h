@@ -10,7 +10,8 @@
 #define fplib_h
 
 #include <stdio.h>
-typedef unsigned int bit16;
+
+typedef unsigned int bit16;//FP(16, 8)
 struct signExpFrac {
     unsigned sign;
     unsigned exp;
