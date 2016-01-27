@@ -15,8 +15,10 @@ int main(int argc, const char * argv[]) {
     printf("Hello, World!\n");
     
     
-    bit16 someFloat = float_16(1, 33, 222); //FP(16, 8)
+    bit16 someFloat = float_16(1, 10, 16); //FP(16, 8)
     
+    
+    fp_mult(someFloat, someFloat);
     
     return 0;
 }

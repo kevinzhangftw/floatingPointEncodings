@@ -10,10 +10,11 @@
 #include <math.h>
 #include <assert.h> 
 
-struct signExpFrac extract(bit16 x){
-    struct signExpFrac newSignExpFrac;
-    //implementation here
-    return newSignExpFrac;
+
+unsigned int multiplyFracComponents(unsigned int leftFrac, unsigned int rightFrac) {
+    //TODO:
+    
+    return 0;
 }
 
 int binary_decimal(int n) {
@@ -43,14 +44,63 @@ bit16 float_16(unsigned sign, unsigned exp, unsigned frac){
     
     bit16 combined;
     combined += sign * power(2, 15);
-    combined += exp * power(2, 7);
+    combined += exp * power(2, 8);
     combined += frac;
-    
+    //legit.
     return combined;
+}
+
+
+struct signExpFrac extract(bit16 bits){
+    assert(bits >= 0 || bits < power(2, 16));
+    struct signExpFrac newSignExpFrac;
+    
+    
+    unsigned int signBit = bits / power(2, 15);
+    unsigned int exponentBit = (bits % power(2, 15)) / power(2, 8);
+    unsigned int fractionBit = bits % power(2, 8);
+    
+    newSignExpFrac.sign = signBit;
+    newSignExpFrac.frac = fractionBit;
+    newSignExpFrac.exp = exponentBit;
+    
+    return newSignExpFrac;
 }
 
 bit16 fp_mult(bit16 x, bit16 y){
     bit16 product;
-    //implementation here
+    
+    assert(x >= 0 || x < power(2, 16));
+    assert(y >= 0 || y < power(2, 16));
+    
+    struct signExpFrac multipliedComponents;
+    
+    struct signExpFrac xComponents = extract(x);
+    struct signExpFrac yComponents = extract(y);
+    
+    multipliedComponents.sign = xComponents.sign * yComponents.sign;
+
+    unsigned int multipliedExponent = xComponents.exp + yComponents.exp;
+    if (multipliedExponent > power(2, 7)) { //overflow exponents
+        assert(multipliedExponent < power(2, 7)); //TODO: check later.
+    }
+    multipliedComponents.exp = multipliedExponent;
+    
+    
+    
+    unsigned int multipliedFraction = multiplyFracComponents(xComponents.frac, yComponents.frac);
+    if (multipliedFraction >= power(2, 8)) {
+        //TODO: carry over to the exponent
+        assert(multipliedFraction < power(2, 8));
+    } else {
+        //business as usual. no carry over.
+        
+    }
+    
+    
+    
     return product;
 }
+
+
+
